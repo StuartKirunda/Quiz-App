@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200;8..144,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar{
+  width: 8px;
+  background-color: grey;
+}
+
+a{
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.app{
+  min-height: 100vh;
+  /* border: 8px solid #39445a93; */
+  border: 8px solid black;
+  /* margin: 5px; */
+  padding: 5px;
+}
