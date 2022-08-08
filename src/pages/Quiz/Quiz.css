@@ -1,21 +1,186 @@
 .quiz{
+    padding-top: 50px;
+
+}
+
+.top{
+    height: 50%;
+    position: relative;
+}
+
+
+
+.bottom{
+    height: 50%;
+}
+
+.score{
+    position: relative;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.container{
+    background: url("../../assets/images/quiz-app-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    font-family: 'Roboto Flex', sans-serif;
+    height: 100vh;
+    
 }
 
-.subtitle{
-    font-size: 25px;
-    border: 1px solid black;
-    box-shadow: 4px 4px 2px black;
-    padding: 5px 10px;
+.question{
+    width: 80%;
+    background: linear-gradient(#100241,black);
+    border: 2px solid white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 20px;
 }
 
-.quizInfo{
+.quesImg{
+    width: 30%;
+    height: 50%;
+    border: 2px solid white;
+    border-radius: 10px;
+   
+    /* padding-bottom: 20px; */
+    
+}
+
+.Img{
+   width: 100%;
+   height: 100%;    
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.answers{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    text-transform: uppercase;
-    margin: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.answer{
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(#0e0124,#22074d);
+    border: 1px solid white;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    margin: 0 10px 20px 10px;
+    color: white;
+}
+
+.answer.correct{
+   background: green;
+}
+
+.answer.wrong{
+    background: crimson;
+}
+
+.spin-loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15%;
+}
+
+
+.nextQuestion{
+    width: 200px;
+    display: inline-block;
+    padding: 10px;
+    background: linear-gradient(#0e0124,#22074d);
+    border: 1px solid white;
+    margin: 0 0.3em 0.3em 0;
+    border-radius:15px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 300;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
+}
+.nextQuestion:hover{
+    /* color: black;
+    background: #FFFFFF; */
+    background: navy;
+}
+@media all and (max-width:30em){
+    .nextQuestion{
+        display: block;
+        margin: 0.4em auto;
+    }
+}
+
+.finishQuiz{
+    width: 200px;
+    display: inline-block;
+    padding: 10px;
+    background: linear-gradient(#0e0124,#22074d);
+    border: 1px solid white;
+    margin: 0 0.3em 0.3em 0;
+    border-radius:15px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 300;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
+}
+.finishQuiz:hover{
+    /* color: black;
+    background: #FFFFFF; */
+    background: navy;
+}
+@media all and (max-width:30em){
+    .finishQuiz{
+        display: block;
+        margin: 0.4em auto;
+    }
+}
+
+.border{
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid transparent;
+    border-width: 10px 0;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: lightblue;
+    background-color: hsla(0,0%,0%,0);
+    background-image:
+        linear-gradient(lightblue, darkblue),
+        linear-gradient(to bottom right, transparent 50.5%, lightblue 50.5%),
+        linear-gradient(to bottom left, transparent 50.5%, lightblue 50.5%),
+        linear-gradient(to top right, transparent 50.5%, darkblue 50.5%),
+        linear-gradient(to top left, transparent 50.5%, darkblue 50.5%);
+    background-repeat: repeat, repeat-x, repeat-x, repeat-x, repeat-x;
+    background-position: 0 0, 10px 0, 10px 0, 10px 100%, 10px 100%;
+    background-size: auto auto, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
+    background-clip: padding-box, border-box, border-box, border-box, border-box;
+    background-origin: padding-box, border-box, border-box, border-box, border-box;
+
+    
 }

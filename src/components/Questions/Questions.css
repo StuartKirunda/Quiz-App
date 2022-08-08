@@ -1,59 +1,93 @@
-.image{
-    width: 50%;
+.trivia{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url("../../assets/images/quiz-app-bg.jpg");
 }
 
 .question{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.singleQuestion{
-    width: 95%;
-    min-height: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    border: 5px solid grey;
+    width: 80%;
+    background: linear-gradient(#100241,black);
+    border: 2px solid white;
+    text-align: center;
     padding: 20px;
-    margin-top: 10px;
-
+    border-radius: 10px;
+    font-size: 20px;
 }
 
-.options{
+.explanation{
+    width: 80%;
+    background: linear-gradient(#100241,black);
+    border: 2px solid white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.answers{
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    flex: 1;
-    align-items: center;
-    justify-content: space-around;
-    margin: 10px;
 }
 
-.singleOption{
-    width: 46%;
-    height: 50px;
-    padding: 15px 20px;
-    margin: 10px;
-    box-shadow: 0 0 2px black;
+.answer{
+    width: 40px;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(#0e0124,#22074d);
+    border: 1px solid white;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    margin: 0 10px 20px 10px;
 }
 
-@media(max-width:614px){
-    .singleOption{
-        width: 100%;
+.answer:hover,
+.answer.active{
+    background: mediumblue;
+}
+
+.answer.correct{
+    animation: correct 3s ease forwards;
+}
+
+@keyframes correct {
+    0%,22%,42%{
+        background: mediumblue;
+    }
+    20%,40%,60%{
+        background: linear-gradient(#0e0124,#22074d);
+    }
+    62%,100%{
+        background: green;
     }
 }
 
-.select{
-    background-color: rgb(7,207,0);
-    color: white;
-    box-shadow: 0 0 1px black;
+.answer.wrong{
+    animation: wrong 3s ease forwards;
 }
 
-.wrong{
-     background-color: rgb(233,0,0);
-    color: white;
-    box-shadow: 0 0 1px black;
+@keyframes wrong {
+    0%,22%,42%{
+        background: mediumblue;
+    }
+    20%,40%,60%{
+        background: linear-gradient(#0e0124,#22074d);
+    }
+    62%,100%{
+        background: crimson;
+    }
 }
+
+.questionnaire{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

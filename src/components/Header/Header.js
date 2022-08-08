@@ -1,14 +1,14 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/images/logo.png';
 
 function Header() {
     return (
         <div className='header'>
             <Link to={"/"} className="title">
-                Travel Quiz Hub
+                <img src={logo} alt='headerImage' />
             </Link>
-            <hr className='divider' />
         </div>
     );
 }

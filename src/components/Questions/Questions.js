@@ -1,60 +1,49 @@
-import React, { useState } from 'react';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import './Questions.css';
+import React from 'react';
+
 
 function Questions({
-    currQues, setCurrQues, questions, options, correct, setScore, score, setQuestions, image
-}) {
-    const [selected, setSelected] = useState();
-    const [error, setError] = useState(false);
+    nextQuestion,
+    finishQuiz,
+    currIndex,
+    showAnswers,
+    questionList,
+    showExplanation,
+    handleAnswer,
+    data: { question, image, correct_answer, answers, explanation } }) {
 
-    function handleSelect(i) {
-        if (selected === i && selected === correct) {
-            return "select";
-
-        } else if (selected === i && selected !== correct) {
-            return "wrong";
-
-        } else if (i === correct) {
-            return "select";
-        }
-    }
-
-    function handleCheck(i) {
-        setSelected(i);
-        if (i === correct) {
-            setScore(score + 1);
-        }
-        setError(false);
-    }
 
     return (
-        <div className='question'>
-            <h1>Question {currQues + 1}</h1>
-
-            <div className='singleQuestion'>
-                <h2>{questions[currQues].question}</h2>
-
-                <div className='image'>
-                    <img src={questions[currQues].image} alt="question_image" />
-                </div>
-
-                <div className='options'>
-                    {error && <ErrorMessage>{error}</ErrorMessage>}
-                    {options && options.map((i) => (
-                        <button
-                            onClick={() => handleCheck(i)}
-                            className={`singleOption ${selected && handleSelect(i)}`}
-                            key={i}
-                            disabled={selected}>
-                            {i}</button>
-                    ))}
-                </div>
+        <div className='container'>
+            <div className='quesImg'>
+                <img className='Img' src={image} alt='questionImage' />
             </div>
-        </div >
+            <div className='question'>
+                {showExplanation ? explanation : question}
+            </div>
+            <div className='answers'>
+                {answers.map((answer, idx) => {
+
+                    return (
+
+                        <button
+                            key={idx}
+                            className={showAnswers ? answer === correct_answer ? "answer correct" : "answer wrong" : "answer"}
+                            onClick={() => handleAnswer(answer)}>{answer}</button>
+                    );
+                })}
+
+            </div>
+            {showAnswers && (
+                currIndex === questionList.length - 1 ? (
+                    <button onClick={finishQuiz} className='finishQuiz'>Finish Quiz</button>
+                ) : (
+                    <button onClick={nextQuestion} className='nextQuestion'>Next Question</button>
+                )
+
+
+            )}
+        </div>
     );
 }
 
 export default Questions;
-
-
